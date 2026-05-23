@@ -73,14 +73,25 @@ export default function AboutView() {
         {/* Actions */}
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="/resume.pdf"
+            href="/resume-software.pdf"
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-mono text-[11px] uppercase tracking-widest hover:bg-gray-800 transition-colors"
           >
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Download Résumé
+            Software Résumé
+          </a>
+
+          <a
+            href="/resume-hardware.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-mono text-[11px] uppercase tracking-widest hover:bg-gray-800 transition-colors"
+          >
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path d="M6.5 1v7M3.5 5.5l3 3 3-3M1.5 10h10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Hardware Résumé
           </a>
 
           <button
