@@ -89,12 +89,13 @@ export const projects: Project[] = [
 export const workItems: WorkItem[] = [
   {
     id: 'work-1',
-    company: 'Company Name',
-    role: 'Your Role',
-    period: 'Month Year – Month Year',
+    company: 'Robotics Research Assistant',
+    role: 'Research Assistant · University of Guelph',
+    period: '2025 – Present',
     description:
-      'Describe what you worked on, what you shipped, and the impact it had. Replace this placeholder with your real work experience.',
-    tags: ['Tag1', 'Tag2', 'Tag3'],
+      'Working under the Department of Electrical and Computer Engineering on a predictive cognitive assistance system. The project focuses on learning patterns of normal activity from public datasets and identifying deviations that may serve as early indicators of confusion or need for assistance. Responsible for literature review, dataset analysis, model development in Python, and deploying deviation-detection logic on a Raspberry Pi with a mobile robot testbed.',
+    tags: ['Python', 'Machine Learning', 'Raspberry Pi', 'Robotics', 'Data Analysis'],
+    link: 'https://www.uoguelph.ca',
   },
 ]
 
@@ -114,8 +115,9 @@ export const aboutData: AboutData = {
 
 export const utilLinks: UtilLink[] = [
   { label: 'GitHub', href: 'https://github.com/AliM3ski' },
-  { label: 'Résumé', href: '/resume.pdf' },
-  { label: 'Contact', href: 'alimeski.work@gmail.com' },
+  { label: 'Software Résumé', href: '/resume-software.pdf' },
+  { label: 'Hardware Résumé', href: '/resume-hardware.pdf' },
+  { label: 'Contact', href: 'mailto:alimeski.work@gmail.com' },
 ]
 
 export const GRADIENTS: [string, string][] = [

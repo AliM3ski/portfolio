@@ -51,7 +51,7 @@ export default function ProjectViewer({
           {project.video ? (
             <video
               src={project.video}
-              poster={project.image || undefined}
+
               autoPlay
               loop
               muted
