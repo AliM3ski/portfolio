@@ -10,7 +10,7 @@ import ThumbnailGrid from '@/components/ThumbnailGrid'
 import { projects, workItems } from '@/data/projects'
 
 export default function Home() {
-  const [view, setView] = useState<View>('projects')
+  const [view, setView] = useState<View>('about')
   const [projectIndex, setProjectIndex] = useState(0)
   const [workIndex, setWorkIndex] = useState(0)
   const [direction, setDirection] = useState<number>(1)

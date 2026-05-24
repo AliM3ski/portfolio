@@ -72,6 +72,20 @@ export default function Sidebar({
       {/* Nav */}
       <nav className="flex-1 space-y-6 overflow-y-auto">
 
+        {/* About */}
+        <div>
+          <button
+            onClick={onSelectAbout}
+            className={`text-[14px] transition-colors ${
+              view === 'about'
+                ? 'font-semibold text-black'
+                : 'font-normal text-gray-400 hover:text-black'
+            }`}
+          >
+            About
+          </button>
+        </div>
+
         {/* Projects */}
         <div>
           <div className="font-mono text-[10px] text-gray-300 uppercase tracking-widest mb-2.5">
@@ -116,20 +130,6 @@ export default function Sidebar({
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* About */}
-        <div>
-          <button
-            onClick={onSelectAbout}
-            className={`text-[14px] transition-colors ${
-              view === 'about'
-                ? 'font-semibold text-black'
-                : 'font-normal text-gray-400 hover:text-black'
-            }`}
-          >
-            About
-          </button>
         </div>
       </nav>
 
