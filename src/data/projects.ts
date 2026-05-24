@@ -96,24 +96,24 @@ export const workItems: WorkItem[] = [
     id: 'work-1',
     company: 'Robotics Research Assistant',
     role: 'Research Assistant · University of Guelph',
-    period: '2025 – Present',
+    period: 'May 2026 – Present',
     description: 'Predictive cognitive assistance research at the Department of Electrical and Computer Engineering.',
     sections: [
       {
-        text: 'Working under the Department of Electrical and Computer Engineering on a predictive cognitive assistance system. Many assistive systems for individuals with cognitive or visual impairments provide support only after a problem has already occurred — such as missed tasks or disorientation. This project focuses on anticipating when help is needed before it becomes critical.',
-        image: '', // add a photo here e.g. '/work/lab1.jpg'
+        text: "I am working as a research assistant under the Department of Electrical and Computer Engineering, contributing to a Master's thesis on predictive cognitive assistance. The project is led by a Master's student, and my role is to support the research and development work that underpins his thesis — building systems that can anticipate when individuals with cognitive or visual impairments need help, before a problem actually occurs.",
+        image: '', // e.g. '/work/photo1.jpg'
       },
       {
-        text: 'The work involves reviewing research literature on assistive systems, identifying and analysing publicly available motion sensor datasets hosted on IEEE DataPort, and implementing data preprocessing and feature extraction pipelines in Python.',
-        image: '',
+        text: "My primary contribution so far has been conducting a comprehensive literature review. I worked through a large number of academic articles on assistive systems, motion pattern analysis, and context-aware intelligence, and compiled the key findings, methodologies, and research gaps into a structured reference document to guide the direction of the project.",
+        image: '', // e.g. '/work/photo2.jpg' — photo of notes or workspace
       },
       {
-        text: 'I am developing simple, explainable models — statistical thresholds and clustering methods — that detect when observed motion patterns deviate from learned normal behaviour. The deviation-detection logic is then deployed on a Raspberry Pi connected to an inertial motion sensor, providing context-aware assistive cues such as LED indicators or audio alerts.',
-        image: '',
+        text: "The broader system we are building focuses on learning patterns of normal human activity from public motion sensor datasets and identifying deviations that may signal confusion, missed actions, or a need for assistance. The goal is a predictive, context-aware model that can run on a Raspberry Pi and trigger assistive cues in real time.",
+        image: '', // e.g. '/work/photo3.jpg' — lab or hardware photo
       },
       {
-        text: 'The final stage involves mounting the system on a mobile robot platform and conducting controlled indoor tests to validate detection accuracy and document system limitations. The outcomes aim to contribute insight into anticipatory assistive systems and support future development of wearable and mobile assistive technologies.',
-        image: '',
+        text: "The validated logic will eventually be mounted on a mobile robot platform for controlled indoor testing. This work is expected to contribute to the growing field of anticipatory assistive technologies and support future wearable and mobile implementations.",
+        image: '', // add when available
       },
     ],
     tags: ['Python', 'Machine Learning', 'Raspberry Pi', 'Robotics', 'Data Analysis'],
