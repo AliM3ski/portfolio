@@ -18,7 +18,7 @@ export default function AboutView() {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.35 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="flex-1 overflow-y-auto flex items-start lg:items-center justify-center px-8 py-10 md:px-12 lg:px-20"
     >
       <div className="w-full max-w-xl">

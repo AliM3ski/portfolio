@@ -14,10 +14,12 @@ interface Props {
   onToggleThumbnails: () => void
 }
 
+const EASING = [0.16, 1, 0.3, 1] as const
+
 const mediaVariants = {
-  enter: (dir: number) => ({ x: dir * 24, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir * 16, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir * -24, opacity: 0 }),
+  exit: (dir: number) => ({ x: dir * -16, opacity: 0 }),
 }
 
 export default function ProjectViewer({
@@ -43,7 +45,7 @@ export default function ProjectViewer({
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.5, ease: EASING }}
           className="order-1 lg:order-2 lg:flex-1 flex items-center justify-center
                      p-4 md:p-6 lg:p-8 bg-gray-50/50 lg:bg-transparent
                      min-h-[44vw] lg:min-h-0 lg:h-full"
@@ -95,10 +97,10 @@ export default function ProjectViewer({
       <AnimatePresence mode="wait">
         <motion.div
           key={project.id + '-info'}
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.45, ease: EASING }}
           className="order-2 lg:order-1 lg:w-[360px] lg:flex-shrink-0
                      flex flex-col justify-start lg:justify-center
                      px-6 py-6 md:px-8 md:py-8 lg:px-12 lg:py-14

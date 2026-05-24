@@ -10,14 +10,19 @@ export type Project = {
   github?: string
 }
 
+export type WorkSection = {
+  text: string
+  image?: string // path under /public — add photos of you working here
+}
+
 export type WorkItem = {
   id: string
   company: string
   role: string
   period: string
   description: string
+  sections: WorkSection[]
   tags: string[]
-  image?: string
   link?: string
 }
 
@@ -92,8 +97,25 @@ export const workItems: WorkItem[] = [
     company: 'Robotics Research Assistant',
     role: 'Research Assistant · University of Guelph',
     period: '2025 – Present',
-    description:
-      'Working under the Department of Electrical and Computer Engineering on a predictive cognitive assistance system. The project focuses on learning patterns of normal activity from public datasets and identifying deviations that may serve as early indicators of confusion or need for assistance. Responsible for literature review, dataset analysis, model development in Python, and deploying deviation-detection logic on a Raspberry Pi with a mobile robot testbed.',
+    description: 'Predictive cognitive assistance research at the Department of Electrical and Computer Engineering.',
+    sections: [
+      {
+        text: 'Working under the Department of Electrical and Computer Engineering on a predictive cognitive assistance system. Many assistive systems for individuals with cognitive or visual impairments provide support only after a problem has already occurred — such as missed tasks or disorientation. This project focuses on anticipating when help is needed before it becomes critical.',
+        image: '', // add a photo here e.g. '/work/lab1.jpg'
+      },
+      {
+        text: 'The work involves reviewing research literature on assistive systems, identifying and analysing publicly available motion sensor datasets hosted on IEEE DataPort, and implementing data preprocessing and feature extraction pipelines in Python.',
+        image: '',
+      },
+      {
+        text: 'I am developing simple, explainable models — statistical thresholds and clustering methods — that detect when observed motion patterns deviate from learned normal behaviour. The deviation-detection logic is then deployed on a Raspberry Pi connected to an inertial motion sensor, providing context-aware assistive cues such as LED indicators or audio alerts.',
+        image: '',
+      },
+      {
+        text: 'The final stage involves mounting the system on a mobile robot platform and conducting controlled indoor tests to validate detection accuracy and document system limitations. The outcomes aim to contribute insight into anticipatory assistive systems and support future development of wearable and mobile assistive technologies.',
+        image: '',
+      },
+    ],
     tags: ['Python', 'Machine Learning', 'Raspberry Pi', 'Robotics', 'Data Analysis'],
     link: 'https://www.uoguelph.ca',
   },

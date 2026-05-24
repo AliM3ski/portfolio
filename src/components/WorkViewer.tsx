@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import type { WorkItem } from '@/data/projects'
-import { GRADIENTS } from '@/data/projects'
 
 interface Props {
   item: WorkItem
@@ -12,86 +11,35 @@ interface Props {
   onNext: () => void
 }
 
-const mediaVariants = {
-  enter: (dir: number) => ({ x: dir * 24, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir * -24, opacity: 0 }),
-}
+const EASING = [0.16, 1, 0.3, 1] as const
 
-export default function WorkViewer({ item, itemIndex, direction, onPrev, onNext }: Props) {
-  const [bgFrom, bgTo] = GRADIENTS[(itemIndex + 2) % GRADIENTS.length]
-
+export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
   return (
-    <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
+    <AnimatePresence mode="wait" custom={direction}>
+      <motion.div
+        key={item.id}
+        custom={direction}
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -16 }}
+        transition={{ duration: 0.5, ease: EASING }}
+        className="flex-1 overflow-y-auto"
+      >
+        <div className="max-w-2xl mx-auto px-8 py-12 lg:py-16">
 
-      {/* Media — top on mobile, right on desktop */}
-      <AnimatePresence mode="wait" custom={direction}>
-        <motion.div
-          key={item.id + '-media'}
-          custom={direction}
-          variants={mediaVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="order-1 lg:order-2 lg:flex-1 flex items-center justify-center
-                     p-4 md:p-6 lg:p-10 bg-gray-50/50 lg:bg-transparent
-                     min-h-[40vw] lg:min-h-0 lg:h-full"
-        >
-          {item.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={item.image}
-              alt={item.company}
-              className="max-h-[40vw] lg:max-h-[85vh] w-auto max-w-full object-contain"
-            />
-          ) : (
-            <div
-              className="w-full max-w-2xl flex flex-col items-center justify-center"
-              style={{
-                aspectRatio: '16 / 10',
-                background: `linear-gradient(135deg, ${bgFrom}, ${bgTo})`,
-              }}
-            >
-              <span className="font-mono text-white/50 text-xs uppercase tracking-widest px-8 text-center">
-                {item.company}
-              </span>
-              <span className="font-mono text-white/30 text-[10px] uppercase tracking-widest mt-2">
-                {item.role}
-              </span>
-            </div>
-          )}
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Info — bottom on mobile, left on desktop */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={item.id + '-info'}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.3 }}
-          className="order-2 lg:order-1 lg:w-[360px] lg:flex-shrink-0
-                     flex flex-col justify-start lg:justify-center
-                     px-6 py-6 md:px-8 md:py-8 lg:px-12 lg:py-14
-                     lg:border-r border-gray-100"
-        >
-          <p className="font-mono text-[11px] uppercase tracking-widest text-gray-400 mb-2">
+          {/* Header */}
+          <p className="font-mono text-[11px] text-gray-400 uppercase tracking-widest">
             {item.period}
           </p>
-          <h2 className="font-mono text-[16px] font-bold uppercase tracking-wide text-black leading-snug">
+          <h1 className="font-mono text-[22px] lg:text-[26px] font-bold uppercase tracking-wide text-black mt-2 leading-tight">
             {item.company}
-          </h2>
-          <p className="font-mono text-[11px] uppercase tracking-widest text-gray-500 mt-1">
+          </h1>
+          <p className="font-mono text-[11px] text-gray-500 uppercase tracking-widest mt-2">
             {item.role}
           </p>
 
-          <p className="text-[14px] text-gray-600 leading-relaxed mt-5">
-            {item.description}
-          </p>
-
-          <div className="mt-4 flex flex-wrap gap-2">
+          {/* Tags */}
+          <div className="mt-5 flex flex-wrap gap-2">
             {item.tags.map((tag) => (
               <span
                 key={tag}
@@ -102,24 +50,55 @@ export default function WorkViewer({ item, itemIndex, direction, onPrev, onNext 
             ))}
           </div>
 
-          {item.link && (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 font-mono text-[10px] uppercase tracking-widest text-gray-400 hover:text-black transition-colors underline"
-            >
-              Website
-            </a>
-          )}
+          <div className="mt-8 border-t border-gray-100" />
 
-          <div className="mt-8 flex items-center gap-3 font-mono text-[10px] uppercase tracking-widest text-gray-400">
-            <button onClick={onPrev} className="hover:text-black transition-colors py-2 pr-2">Prev</button>
-            <span>/</span>
-            <button onClick={onNext} className="hover:text-black transition-colors py-2 px-2">Next</button>
+          {/* Scrollable sections */}
+          <div className="mt-8 space-y-12">
+            {item.sections.map((section, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: EASING, delay: i * 0.07 }}
+              >
+                <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
+                {section.image && (
+                  <div className="mt-6 overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={section.image}
+                      alt=""
+                      className="w-full object-cover"
+                    />
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
+
+          {/* Footer: link + prev/next */}
+          <div className="mt-14 pt-8 border-t border-gray-100 flex items-center justify-between">
+            {item.link ? (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] uppercase tracking-widest text-gray-400 hover:text-black transition-colors underline"
+              >
+                Website
+              </a>
+            ) : <span />}
+
+            <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-gray-400">
+              <button onClick={onPrev} className="hover:text-black transition-colors py-2 pr-2">Prev</button>
+              <span>/</span>
+              <button onClick={onNext} className="hover:text-black transition-colors py-2 pl-2">Next</button>
+            </div>
+          </div>
+
+          <div className="h-16" />
+        </div>
+      </motion.div>
+    </AnimatePresence>
   )
 }

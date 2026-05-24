@@ -130,33 +130,51 @@ export default function Home() {
 
         {/* Page content */}
         <main className="flex-1 overflow-hidden flex">
-          {view === 'about' ? (
-            <AboutView />
-          ) : view === 'work' ? (
-            <WorkViewer
-              item={workItems[workIndex]}
-              itemIndex={workIndex}
-              direction={direction}
-              onPrev={goPrev}
-              onNext={goNext}
-            />
-          ) : showThumbnails ? (
-            <ThumbnailGrid
-              projects={projects}
-              activeIndex={projectIndex}
-              onSelect={(i) => { handleSelectProject(i); setShowThumbnails(false) }}
-            />
-          ) : (
-            <ProjectViewer
-              project={projects[projectIndex]}
-              projectIndex={projectIndex}
-              direction={direction}
-              onPrev={goPrev}
-              onNext={goNext}
-              showThumbnails={showThumbnails}
-              onToggleThumbnails={() => setShowThumbnails((t) => !t)}
-            />
-          )}
+          <AnimatePresence mode="wait">
+            {view === 'about' ? (
+              <motion.div key="about" className="flex-1 flex overflow-hidden"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
+                <AboutView />
+              </motion.div>
+            ) : view === 'work' ? (
+              <motion.div key="work" className="flex-1 flex overflow-hidden"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
+                <WorkViewer
+                  item={workItems[workIndex]}
+                  itemIndex={workIndex}
+                  direction={direction}
+                  onPrev={goPrev}
+                  onNext={goNext}
+                />
+              </motion.div>
+            ) : showThumbnails ? (
+              <motion.div key="thumbnails" className="flex-1 flex overflow-hidden"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
+                <ThumbnailGrid
+                  projects={projects}
+                  activeIndex={projectIndex}
+                  onSelect={(i) => { handleSelectProject(i); setShowThumbnails(false) }}
+                />
+              </motion.div>
+            ) : (
+              <motion.div key="projects" className="flex-1 flex overflow-hidden"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
+                <ProjectViewer
+                  project={projects[projectIndex]}
+                  projectIndex={projectIndex}
+                  direction={direction}
+                  onPrev={goPrev}
+                  onNext={goNext}
+                  showThumbnails={showThumbnails}
+                  onToggleThumbnails={() => setShowThumbnails((t) => !t)}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </main>
       </div>
     </div>
