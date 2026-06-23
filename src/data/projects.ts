@@ -101,19 +101,18 @@ export const workItems: WorkItem[] = [
     sections: [
       {
         text: "I am working as a research assistant under the Department of Electrical and Computer Engineering, contributing to a Master's thesis on predictive cognitive assistance. The project is led by a Master's student, and my role is to support the research and development work that underpins his thesis — building systems that can anticipate when individuals with cognitive or visual impairments need help, before a problem actually occurs.",
-        image: '', // e.g. '/work/photo1.jpg'
+        image: '/work/depth-camera.jpg',
       },
       {
         text: "My primary contribution so far has been conducting a comprehensive literature review. I worked through a large number of academic articles on assistive systems, motion pattern analysis, and context-aware intelligence, and compiled the key findings, methodologies, and research gaps into a structured reference document to guide the direction of the project.",
-        image: '', // e.g. '/work/photo2.jpg' — photo of notes or workspace
+        image: '/work/lab-setup.jpg',
       },
       {
         text: "The broader system we are building focuses on learning patterns of normal human activity from public motion sensor datasets and identifying deviations that may signal confusion, missed actions, or a need for assistance. The goal is a predictive, context-aware model that can run on a Raspberry Pi and trigger assistive cues in real time.",
-        image: '', // e.g. '/work/photo3.jpg' — lab or hardware photo
+        image: '/work/raspberry-pi.jpg',
       },
       {
         text: "The validated logic will eventually be mounted on a mobile robot platform for controlled indoor testing. This work is expected to contribute to the growing field of anticipatory assistive technologies and support future wearable and mobile implementations.",
-        image: '', // add when available
       },
     ],
     tags: ['Python', 'Machine Learning', 'Raspberry Pi', 'Robotics', 'Data Analysis'],
