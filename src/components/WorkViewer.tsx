@@ -61,18 +61,9 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
                 transition={{ duration: 0.5, ease: EASING, delay: i * 0.06 }}
                 className="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-100"
               >
-                {isEven ? (
-                  <div className="flex items-center px-10 lg:px-16 py-12 lg:py-14">
-                    <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
-                  </div>
-                ) : (
-                  <>
-                    <div />
-                    <div className="flex items-center px-10 lg:px-16 py-12 lg:py-14">
-                      <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
-                    </div>
-                  </>
-                )}
+                <div className="flex items-center px-10 lg:px-16 py-12 lg:py-14">
+                  <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
+                </div>
               </motion.div>
             )
           }
