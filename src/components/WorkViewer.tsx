@@ -59,11 +59,20 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: EASING, delay: i * 0.06 }}
-                className="px-10 lg:px-16 py-12 lg:py-14 border-b border-gray-100"
+                className="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-100"
               >
-                <p className="text-[15px] text-gray-700 leading-relaxed max-w-2xl">
-                  {section.text}
-                </p>
+                {isEven ? (
+                  <div className="flex items-center px-10 lg:px-16 py-12 lg:py-14">
+                    <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
+                  </div>
+                ) : (
+                  <>
+                    <div />
+                    <div className="flex items-center px-10 lg:px-16 py-12 lg:py-14">
+                      <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
+                    </div>
+                  </>
+                )}
               </motion.div>
             )
           }
@@ -86,7 +95,7 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
 
               {/* Image */}
               <div
-                className={`relative overflow-hidden bg-gray-50 min-h-[260px]
+                className={`relative overflow-hidden bg-gray-50 min-h-[440px]
                   ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
