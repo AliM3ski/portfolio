@@ -52,6 +52,8 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
           const isEven = i % 2 === 0
           const hasImage = !!section.image
 
+          const textContent = Array.isArray(section.text) ? section.text : [section.text]
+
           if (!hasImage) {
             return (
               <motion.div
@@ -62,7 +64,11 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
                 className="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-100"
               >
                 <div className="flex items-center px-10 lg:px-16 py-12 lg:py-14">
-                  <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
+                  <div className="space-y-4">
+                    {textContent.map((t, j) => (
+                      <p key={j} className="text-[15px] text-gray-700 leading-relaxed">{t}</p>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )
@@ -81,7 +87,11 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
                 className={`flex items-center px-10 lg:px-16 py-12 lg:py-16
                   ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
               >
-                <p className="text-[15px] text-gray-700 leading-relaxed">{section.text}</p>
+                <div className="space-y-4">
+                  {textContent.map((t, j) => (
+                    <p key={j} className="text-[15px] text-gray-700 leading-relaxed">{t}</p>
+                  ))}
+                </div>
               </div>
 
               {/* Image */}

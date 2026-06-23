@@ -11,7 +11,7 @@ export type Project = {
 }
 
 export type WorkSection = {
-  text: string
+  text: string | string[]
   image?: string // path under /public — add photos of you working here
 }
 
@@ -108,11 +108,11 @@ export const workItems: WorkItem[] = [
         image: '/work/lab-setup.JPG',
       },
       {
-        text: "The broader system we are building focuses on learning patterns of normal human activity from public motion sensor datasets and identifying deviations that may signal confusion, missed actions, or a need for assistance. The goal is a predictive, context-aware model that can run on a Raspberry Pi and trigger assistive cues in real time.",
+        text: [
+          "The broader system we are building focuses on learning patterns of normal human activity from public motion sensor datasets and identifying deviations that may signal confusion, missed actions, or a need for assistance. The goal is a predictive, context-aware model that can run on a Raspberry Pi and trigger assistive cues in real time.",
+          "The validated logic will eventually be mounted on a mobile robot platform for controlled indoor testing. This work is expected to contribute to the growing field of anticipatory assistive technologies and support future wearable and mobile implementations.",
+        ],
         image: '/work/raspberry-pi.JPG',
-      },
-      {
-        text: "The validated logic will eventually be mounted on a mobile robot platform for controlled indoor testing. This work is expected to contribute to the growing field of anticipatory assistive technologies and support future wearable and mobile implementations.",
       },
     ],
     tags: ['Python', 'Machine Learning', 'Raspberry Pi', 'Robotics', 'Data Analysis'],
