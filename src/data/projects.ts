@@ -12,7 +12,8 @@ export type Project = {
 
 export type WorkSection = {
   text: string | string[]
-  image?: string // path under /public — add photos of you working here
+  image?: string
+  imagePosition?: string // e.g. 'center', 'top', 'bottom', '50% 80%'
 }
 
 export type WorkItem = {
@@ -114,6 +115,7 @@ export const workItems: WorkItem[] = [
       {
         text: "This is probably the most hands-on I've ever gotten with hardware. Soldering the sensor wiring, assembling the physical platform, getting everything to talk to each other — it's a different kind of problem solving than writing code, and I've enjoyed it a lot.",
         image: '/work/Soldering.JPG',
+        imagePosition: '50% 70%',
       },
     ],
     tags: ['Python', 'C', 'ROS2', 'HailoRT', 'DepthAI', 'Raspberry Pi', 'STM32', 'YOLO', 'Docker'],

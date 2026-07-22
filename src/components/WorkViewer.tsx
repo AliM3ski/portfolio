@@ -104,6 +104,7 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
                   src={section.image}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: section.imagePosition ?? 'center' }}
                 />
               </div>
             </motion.div>
