@@ -113,7 +113,7 @@ export const workItems: WorkItem[] = [
       },
       {
         text: "This is probably the most hands-on I've ever gotten with hardware. Soldering the sensor wiring, assembling the physical platform, getting everything to talk to each other — it's a different kind of problem solving than writing code, and I've enjoyed it a lot.",
-        image: '/work/soldering.JPG',
+        image: '/work/soldering.jpg',
       },
     ],
     tags: ['Python', 'C', 'ROS2', 'HailoRT', 'DepthAI', 'Raspberry Pi', 'STM32', 'YOLO', 'Docker'],
