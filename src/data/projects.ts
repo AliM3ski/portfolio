@@ -100,22 +100,19 @@ export const workItems: WorkItem[] = [
     description: 'Indoor assistive robot for fall detection and autonomous navigation, Department of Electrical and Computer Engineering.',
     sections: [
       {
-        text: "I am contributing to an indoor assistive robot project targeting fall detection and autonomous navigation for elderly and cognitively impaired users, under the supervision of Dr. Sara at the University of Guelph Department of Electrical and Computer Engineering. I am collaborating with Kavin Gunasekaran, a Master's student whose thesis this work supports. The hardware platform is built around a Raspberry Pi 5 with a Hailo AI HAT 2+ (40 TOPS NPU), an OAK-D Lite stereo depth camera, an RPLIDAR A1M8, and an STM32G474RE Nucleo board with dual VL53L1X ToF sensors.",
+        text: "This past summer I joined a robotics research project at the University of Guelph under Dr. Sara, collaborating with Kavin Gunasekaran on his Master's thesis. The goal is an indoor assistive robot for elderly and cognitively impaired users — fall detection, autonomous navigation, the works. It's been one of the most hands-on and challenging experiences I've had, and honestly exactly the kind of work I want to be doing.",
         image: '/work/lab-setup.JPG',
       },
       {
-        text: "My primary contribution has been building the full fall detection pipeline from scratch. Starting with OAK-D camera bring-up, I built a fusion pipeline combining RGB and stereo depth with YOLO object detection running on the Hailo NPU. After an initial custom-trained model failed due to dataset memorization, I pivoted to a pose-based approach using YOLO26n-pose compiled to Hailo's HEF format. The final system runs 17-keypoint pose estimation on the Hailo-10H and classifies falls using a body angle rate state machine — STANDING → FALLING → FALLEN. This is the first known deployment of YOLO26n-pose on the Hailo-10H.",
+        text: "My biggest challenge was building the fall detection pipeline from scratch. I had to figure out how to get the OAK-D camera running, fuse RGB and depth data, and get YOLO running on a specialized AI chip I'd never touched before. My first approach — a custom-trained model — completely fell apart due to dataset memorization. I pivoted to a pose-based approach using 17-keypoint estimation and a body angle state machine, and eventually got it working on the Hailo-10H NPU. As far as I can tell, it's the first deployment of YOLO26n-pose on that chip.",
         image: '/work/depth-camera.JPG',
       },
       {
-        text: [
-          "Beyond fall detection, I compiled YOLO11n, YOLO26n, and YOLO26n-pose models to HEF format using the Hailo Dataflow Compiler. A key finding: random calibration data collapses class confidence to ~0.03, while real COCO val2017 images restore correct output distributions. I also resolved HailoRT version incompatibilities including a kernel patch required for the 5.1.1 → 5.3.0 upgrade. On the navigation side, I brought up the full ROS2 Jazzy stack — sllidar_ros2, slam_toolbox, and a modified A* pathfinder with 2 Hz continuous replanning, obstacle inflation, and a camera fusion hook that treats detected persons as dynamic obstacles.",
-          "I also established bidirectional UART between the STM32G474RE and the Raspberry Pi 5, and integrated dual VL53L1X ToF sensors on I2C1 and I2C2 with XSHUT address switching via a custom HAL bridge. The full stack spans Python, C, ROS2 Jazzy, HailoRT, DepthAI V3, STM32CubeIDE, the Hailo Dataflow Compiler, Docker, and RViz2.",
-        ],
+        text: "A lot of the work was debugging things that had never been done before — figuring out why model confidence was collapsing to near zero, patching kernel incompatibilities, getting a full ROS2 navigation stack running with live obstacle detection. I also wired up the STM32 microcontroller and ToF sensors entirely from scratch. Each piece felt like its own mini-project, and stacking them together into something that actually works has been really satisfying.",
         image: '/work/raspberry-pi.JPG',
       },
       {
-        text: "A significant part of the hardware work has been hands-on — soldering connections for the ToF sensor wiring harness, fabricating custom cable assemblies for the sensor array, and assembling the physical robot platform.",
+        text: "This is probably the most hands-on I've ever gotten with hardware. Soldering the sensor wiring, assembling the physical platform, getting everything to talk to each other — it's a different kind of problem solving than writing code, and I've enjoyed it a lot.",
         image: '/work/soldering.JPG',
       },
     ],
