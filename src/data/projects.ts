@@ -97,25 +97,29 @@ export const workItems: WorkItem[] = [
     company: 'Robotics Research Assistant',
     role: 'Research Assistant · University of Guelph',
     period: 'May 2026 – Present',
-    description: 'Predictive cognitive assistance research at the Department of Electrical and Computer Engineering.',
+    description: 'Indoor assistive robot for fall detection and autonomous navigation, Department of Electrical and Computer Engineering.',
     sections: [
       {
-        text: "I am working as a research assistant under the Department of Electrical and Computer Engineering, contributing to a Master's thesis on predictive cognitive assistance. The project is led by a Master's student, and my role is to support the research and development work that underpins his thesis — building systems that can anticipate when individuals with cognitive or visual impairments need help, before a problem actually occurs.",
-        image: '/work/depth-camera.JPG',
-      },
-      {
-        text: "My primary contribution so far has been conducting a comprehensive literature review. I worked through a large number of academic articles on assistive systems, motion pattern analysis, and context-aware intelligence, and compiled the key findings, methodologies, and research gaps into a structured reference document to guide the direction of the project.",
+        text: "I am contributing to an indoor assistive robot project targeting fall detection and autonomous navigation for elderly and cognitively impaired users, under the supervision of Dr. Sara at the University of Guelph Department of Electrical and Computer Engineering. I am collaborating with Kavin Gunasekaran, a Master's student whose thesis this work supports. The hardware platform is built around a Raspberry Pi 5 with a Hailo AI HAT 2+ (40 TOPS NPU), an OAK-D Lite stereo depth camera, an RPLIDAR A1M8, and an STM32G474RE Nucleo board with dual VL53L1X ToF sensors.",
         image: '/work/lab-setup.JPG',
       },
       {
+        text: "My primary contribution has been building the full fall detection pipeline from scratch. Starting with OAK-D camera bring-up, I built a fusion pipeline combining RGB and stereo depth with YOLO object detection running on the Hailo NPU. After an initial custom-trained model failed due to dataset memorization, I pivoted to a pose-based approach using YOLO26n-pose compiled to Hailo's HEF format. The final system runs 17-keypoint pose estimation on the Hailo-10H and classifies falls using a body angle rate state machine — STANDING → FALLING → FALLEN. This is the first known deployment of YOLO26n-pose on the Hailo-10H.",
+        image: '/work/depth-camera.JPG',
+      },
+      {
         text: [
-          "The broader system we are building focuses on learning patterns of normal human activity from public motion sensor datasets and identifying deviations that may signal confusion, missed actions, or a need for assistance. The goal is a predictive, context-aware model that can run on a Raspberry Pi and trigger assistive cues in real time.",
-          "The validated logic will eventually be mounted on a mobile robot platform for controlled indoor testing. This work is expected to contribute to the growing field of anticipatory assistive technologies and support future wearable and mobile implementations.",
+          "Beyond fall detection, I compiled YOLO11n, YOLO26n, and YOLO26n-pose models to HEF format using the Hailo Dataflow Compiler. A key finding: random calibration data collapses class confidence to ~0.03, while real COCO val2017 images restore correct output distributions. I also resolved HailoRT version incompatibilities including a kernel patch required for the 5.1.1 → 5.3.0 upgrade. On the navigation side, I brought up the full ROS2 Jazzy stack — sllidar_ros2, slam_toolbox, and a modified A* pathfinder with 2 Hz continuous replanning, obstacle inflation, and a camera fusion hook that treats detected persons as dynamic obstacles.",
+          "I also established bidirectional UART between the STM32G474RE and the Raspberry Pi 5, and integrated dual VL53L1X ToF sensors on I2C1 and I2C2 with XSHUT address switching via a custom HAL bridge. The full stack spans Python, C, ROS2 Jazzy, HailoRT, DepthAI V3, STM32CubeIDE, the Hailo Dataflow Compiler, Docker, and RViz2.",
         ],
         image: '/work/raspberry-pi.JPG',
       },
+      {
+        text: "A significant part of the hardware work has been hands-on — soldering connections for the ToF sensor wiring harness, fabricating custom cable assemblies for the sensor array, and assembling the physical robot platform.",
+        image: '/work/soldering.JPG',
+      },
     ],
-    tags: ['Python', 'Machine Learning', 'Raspberry Pi', 'Robotics', 'Data Analysis'],
+    tags: ['Python', 'C', 'ROS2', 'HailoRT', 'DepthAI', 'Raspberry Pi', 'STM32', 'YOLO', 'Docker'],
     link: 'https://www.uoguelph.ca',
   },
 ]
