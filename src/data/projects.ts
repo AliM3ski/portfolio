@@ -125,13 +125,13 @@ export const workItems: WorkItem[] = [
 
 export const aboutData: AboutData = {
   bio: [
-    "I'm a second-year Systems and Computing Engineering student at the University of Guelph.",
+    "I'm a third-year Systems and Computing Engineering student at the University of Guelph.",
     'I aspire to support and improve lives through robotics, medical and healthcare-focused engineering.',
   ],
   education: {
     school: 'University of Guelph',
     degree: 'B.Eng. Systems and Computing Engineering',
-    period: '2023 – 2027',
+    period: '2023 – 2029',
   },
   interests: ['Robotics', 'Healthcare Engineering', 'AI & Machine Learning', 'Embedded Systems'],
   email: 'alimeski.work@gmail.com',
