@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Sidebar, { type View } from '@/components/Sidebar'
 import ProjectViewer from '@/components/ProjectViewer'
+import ProjectEditorialViewer from '@/components/ProjectEditorialViewer'
 import WorkViewer from '@/components/WorkViewer'
 import AboutView from '@/components/AboutView'
 import ThumbnailGrid from '@/components/ThumbnailGrid'
@@ -157,6 +158,16 @@ export default function Home() {
                   projects={projects}
                   activeIndex={projectIndex}
                   onSelect={(i) => { handleSelectProject(i); setShowThumbnails(false) }}
+                />
+              </motion.div>
+            ) : projects[projectIndex].sections ? (
+              <motion.div key={`editorial-${projectIndex}`} className="flex-1 flex overflow-hidden"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
+                <ProjectEditorialViewer
+                  project={projects[projectIndex]}
+                  onPrev={goPrev}
+                  onNext={goNext}
                 />
               </motion.div>
             ) : (

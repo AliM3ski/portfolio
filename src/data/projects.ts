@@ -2,7 +2,9 @@ export type Project = {
   id: string
   title: string
   subtitle: string
+  category: 'software' | 'hardware'
   description: string[]
+  sections?: WorkSection[]  // if present, uses editorial alternating layout
   image: string
   video?: string
   tags: string[]
@@ -45,19 +47,34 @@ export const projects: Project[] = [
     id: 'gec-robot',
     title: 'GEC Competition Robot',
     subtitle: 'Hardware · Arduino · Embedded',
-    description: [
-      'Built for the Guelph Engineering Competition, themed "Full Circle: Rethinking Resources." The challenge was to build an autonomous vehicle that picks up recyclables while leaving trash behind in a simulated landfill grid. Competing against a room full of other teams\' designs made it a lot of fun.',
-      'Software — I wrote the Arduino logic driving the autonomous behaviour: reading sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid consistently across two randomized test runs.',
-      'Hardware — We built the collection mechanism from scratch: a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.',
+    category: 'hardware',
+    description: [],
+    sections: [
+      {
+        text: "Built for the Guelph Engineering Competition, themed \"Full Circle: Rethinking Resources.\" The challenge was to build an autonomous vehicle that picks up recyclables while leaving trash behind in a simulated landfill grid. Competing against a room full of other teams' designs made it a lot of fun.",
+        image: '/projects/GECRobot-competition.jpg',
+      },
+      {
+        text: "Software — I wrote the Arduino logic driving the autonomous behaviour: reading sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid consistently across two randomized test runs.",
+        image: '/projects/GECRobot-top.jpg',
+      },
+      {
+        text: "Hardware — We built the collection mechanism from scratch: a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.",
+        image: '/projects/GECRobot.jpg',
+      },
+      {
+        text: "Here's the robot running autonomously during competition testing.",
+        video: '/projects/GEC2026.mp4',
+      },
     ],
     image: '/projects/GECRobot.jpg',
-    video: '/projects/GEC2026.mp4',
     tags: ['Arduino', 'C++', 'Motor Control', 'Embedded Systems'],
   },
   {
     id: 'llm-summarizer',
     title: 'LLM Medical Paper Summarizer',
     subtitle: 'AI · FastAPI · Docker · 2025',
+    category: 'software',
     description: [
       'I wanted a project focused on AI and LLM implementation so this is what I came up with :D.',
       'The app tackles a common research challenge: making lengthy papers accessible through automated summarization. PDFs are extracted, cleaned, and split into token-aware sections that retain logical flow. A map-reduce approach with Anthropic Claude (OpenAI GPT as fallback) summarizes each section independently before consolidating into a final overview. Handles dense 20+ page papers in minutes.',
@@ -70,6 +87,7 @@ export const projects: Project[] = [
     id: 'gameboy-emulator',
     title: 'Game Boy Emulator',
     subtitle: 'Systems · C · SDL2 · 2025',
+    category: 'software',
     description: [
       'This is one of the coolest projects I\'ve created. Using C, I\'ve engineered a fully working Game Boy emulator, replicating CPU, memory, graphics (PPU), audio (APU), and input subsystems to create accurate hardware-level performance.',
       'The emulator fetches and decodes ROM instructions cycle by cycle, executing them in the same timing sequence as the original Game Boy. CPU execution is synchronized with the PPU and APU to correctly render tiles, sprites, audio output, and user input in real time. SDL2 handles graphics rendering and input events.',
@@ -83,6 +101,7 @@ export const projects: Project[] = [
     id: 'sock-sensei',
     title: 'Sock Sensei',
     subtitle: 'Android · Kotlin · 2025',
+    category: 'software',
     description: [
       'This project started as a joke with my friend Areeb while we were learning how to develop Android applications, but it turned into a really fun and rewarding experience.',
       'Built in Kotlin, the app lets users share their thoughts and receive delightfully random sock recommendations. Features smooth multi-activity navigation, a custom-designed UI, and a locally managed recommendation engine.',
@@ -95,6 +114,7 @@ export const projects: Project[] = [
     id: 'endangered-species',
     title: 'Endangered Species Visualizer',
     subtitle: 'Web · Mapbox · 2025',
+    category: 'software',
     description: [
       'This project was done with a couple friends of mine — Areeb, Haziq, Wasif, and Tayyab. There were lots of challenges along the way but we had a great time overall.',
       'Interactive web app mapping endangered species density across Ontario using a weighted Mapbox heatmap. Filters by conservation status — endangered, threatened, and special concern — with priority zones highlighted by heat intensity.',

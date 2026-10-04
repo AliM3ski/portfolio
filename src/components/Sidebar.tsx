@@ -86,28 +86,37 @@ export default function Sidebar({
           </button>
         </div>
 
-        {/* Projects */}
-        <div>
-          <div className="font-mono text-[10px] text-gray-300 uppercase tracking-widest mb-2.5">
-            Projects
-          </div>
-          <ul className="space-y-2">
-            {projects.map((p, i) => (
-              <li key={p.id}>
-                <button
-                  onClick={() => onSelectProject(i)}
-                  className={`text-[14px] text-left transition-colors ${
-                    view === 'projects' && projectIndex === i
-                      ? 'font-semibold text-black'
-                      : 'font-normal text-gray-400 hover:text-black'
-                  }`}
-                >
-                  {p.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Projects — split by category */}
+        {(['hardware', 'software'] as const).map((cat) => {
+          const catProjects = projects.filter(p => p.category === cat)
+          if (catProjects.length === 0) return null
+          return (
+            <div key={cat}>
+              <div className="font-mono text-[10px] text-gray-300 uppercase tracking-widest mb-2.5">
+                {cat}
+              </div>
+              <ul className="space-y-2">
+                {catProjects.map((p) => {
+                  const globalIndex = projects.indexOf(p)
+                  return (
+                    <li key={p.id}>
+                      <button
+                        onClick={() => onSelectProject(globalIndex)}
+                        className={`text-[14px] text-left transition-colors ${
+                          view === 'projects' && projectIndex === globalIndex
+                            ? 'font-semibold text-black'
+                            : 'font-normal text-gray-400 hover:text-black'
+                        }`}
+                      >
+                        {p.title}
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )
+        })}
 
         {/* Work */}
         <div>
