@@ -71,6 +71,29 @@ export const projects: Project[] = [
     tags: ['Arduino', 'C++', 'Motor Control', 'Embedded Systems'],
   },
   {
+    id: 'design2-solidworks',
+    title: 'SolidWorks CAD Assembly',
+    subtitle: 'Hardware · SolidWorks · CAD',
+    category: 'hardware',
+    description: [],
+    sections: [
+      {
+        text: "For my Design 2 class, our group project was to take a real physical kit — a 12-in-1 Solar & Hydraulic Construction Set — and fully reverse-engineer it in SolidWorks. Every individual part had to be modeled from scratch using only the physical pieces and the instruction manual as reference.",
+        image: '/projects/Design2-kit.jpg',
+      },
+      {
+        text: "The kit has 230 pieces across a huge range of shapes — beams, brackets, gears, hydraulic cylinders, a solar panel module, and more. Modeling each one accurately meant a lot of careful measurement and attention to how parts mate together. The instructions showing builds like the Ostrich Assembly gave us the context for how everything was supposed to fit.",
+        image: '/projects/Design2-instructions.jpg',
+      },
+      {
+        text: "Once all the individual parts were done, we assembled them into the full model in SolidWorks — constraints, mates, the works. Here's the final assembly in motion.",
+        video: '/projects/Design2.mp4',
+      },
+    ],
+    image: '/projects/Design2-kit.jpg',
+    tags: ['SolidWorks', 'CAD', 'Mechanical Design', '3D Modeling'],
+  },
+  {
     id: 'llm-summarizer',
     title: 'LLM Medical Paper Summarizer',
     subtitle: 'AI · FastAPI · Docker · 2025',
