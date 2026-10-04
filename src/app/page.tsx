@@ -161,7 +161,7 @@ export default function Home() {
                 />
               </motion.div>
             ) : projects[projectIndex].sections ? (
-              <motion.div key={`editorial-${projectIndex}`} className="flex-1 flex overflow-hidden"
+              <motion.div key={`editorial-${projectIndex}`} className="flex-1 relative overflow-hidden"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
                 <ProjectEditorialViewer

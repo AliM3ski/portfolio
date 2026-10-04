@@ -56,11 +56,11 @@ export const projects: Project[] = [
       },
       {
         text: "Software — I wrote the Arduino logic driving the autonomous behaviour: reading sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid consistently across two randomized test runs.",
-        image: '/projects/GECRobot-top.jpg',
+        image: '/projects/GECRobot-clean.jpg',
       },
       {
         text: "Hardware — We built the collection mechanism from scratch: a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.",
-        image: '/projects/GECRobot.jpg',
+        image: '/projects/GECRobot-clean.jpg',
       },
       {
         text: "Here's the robot running autonomously during competition testing.",
