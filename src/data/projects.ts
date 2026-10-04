@@ -45,8 +45,9 @@ export const projects: Project[] = [
     title: 'GEC Competition Robot',
     subtitle: 'Hardware · Arduino · Embedded · 2026',
     description: [
-      'Built for the Guelph Engineering Competition 2026, Senior Design category. Our team designed and built an autonomous robot car from scratch in a few weeks — Arduino brain, motor controllers, custom chassis, the whole thing.',
-      'The robot had a front plow for pushing and a payload mechanism. Getting the motor control, sensors, and autonomy all working together under time pressure was a real challenge, and competing against other teams\' designs made it a ton of fun.',
+      'Built for the 2026 Guelph Engineering Competition, themed "Full Circle: Rethinking Resources." The challenge was to build an autonomous vehicle that picks up recyclables — paper, plastic — while leaving trash behind in a simulated landfill grid. Points for collecting the right stuff, penalties for the wrong stuff. Competing against a room full of other teams\' robots made it really fun.',
+      'On the software side, I worked on the Arduino logic that drove the autonomous behaviour — reading IR sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid reliably across two randomized test runs.',
+      'On the hardware side, we built the collection mechanism from scratch — a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.',
     ],
     image: '/projects/GECRobot.jpg',
     tags: ['Arduino', 'C++', 'Motor Control', 'Embedded Systems', 'Hardware'],
