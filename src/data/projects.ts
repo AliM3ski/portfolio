@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description: [],
     sections: [
       {
-        text: "Built for the Guelph Engineering Competition, themed \"Full Circle: Rethinking Resources.\" The challenge was to build an autonomous vehicle that picks up recyclables while leaving trash behind in a simulated landfill grid. Competing against a room full of other teams' designs made it a lot of fun.",
+        text: "Built for the Guelph Engineering Competition with my teammates Adam Alzahal, Stefan Popovic, and Khaled Jimoh, themed \"Full Circle: Rethinking Resources.\" The challenge was to build an autonomous vehicle — we called ours the ACU-3741-4W — that picks up recyclables while leaving trash behind in a simulated landfill grid. We took design inspiration from a lawnmower: low profile, wide sweep, built to cover ground efficiently.",
         image: '/projects/GECRobot-competition2.jpg',
       },
       {
