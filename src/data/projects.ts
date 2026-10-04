@@ -13,7 +13,8 @@ export type Project = {
 export type WorkSection = {
   text: string | string[]
   image?: string
-  imagePosition?: string // e.g. 'center', 'top', 'bottom', '50% 80%'
+  imagePosition?: string
+  video?: string
 }
 
 export type WorkItem = {
@@ -40,18 +41,6 @@ export type UtilLink = {
 }
 
 export const projects: Project[] = [
-  {
-    id: 'gec-robot',
-    title: 'GEC Competition Robot',
-    subtitle: 'Hardware · Arduino · Embedded · 2026',
-    description: [
-      'Built for the 2026 Guelph Engineering Competition, themed "Full Circle: Rethinking Resources." The challenge was to build an autonomous vehicle that picks up recyclables — paper, plastic — while leaving trash behind in a simulated landfill grid. Points for collecting the right stuff, penalties for the wrong stuff. Competing against a room full of other teams\' robots made it really fun.',
-      'On the software side, I worked on the Arduino logic that drove the autonomous behaviour — reading IR sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid reliably across two randomized test runs.',
-      'On the hardware side, we built the collection mechanism from scratch — a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.',
-    ],
-    image: '/projects/GECRobot.jpg',
-    tags: ['Arduino', 'C++', 'Motor Control', 'Embedded Systems', 'Hardware'],
-  },
   {
     id: 'llm-summarizer',
     title: 'LLM Medical Paper Summarizer',
@@ -105,6 +94,32 @@ export const projects: Project[] = [
 
 // Replace with your real work experience
 export const workItems: WorkItem[] = [
+  {
+    id: 'gec-robot',
+    company: 'GEC Competition Robot',
+    role: 'Senior Design Competition · University of Guelph',
+    period: 'October 2026',
+    description: 'Autonomous recycling robot built for the 2026 Guelph Engineering Competition.',
+    sections: [
+      {
+        text: "This was a 24-hour design competition at the University of Guelph, themed \"Full Circle: Rethinking Resources.\" The challenge: build an autonomous vehicle that picks up recyclables — paper and plastic — while leaving trash behind in a simulated landfill grid. Points for collecting the right stuff, penalties for the wrong. Competing against a room full of other teams' designs made it a blast.",
+        image: '/projects/GECRobot-competition.jpg',
+      },
+      {
+        text: "On the software side, I wrote the Arduino logic driving the autonomous behaviour — reading sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid consistently across two randomized test runs.",
+        image: '/projects/GECRobot-top.jpg',
+      },
+      {
+        text: "On the hardware side, we built everything from scratch — a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.",
+        image: '/projects/GECRobot.jpg',
+      },
+      {
+        text: "Here's the robot in action during competition testing.",
+        video: '/projects/GEC2026.mp4',
+      },
+    ],
+    tags: ['Arduino', 'C++', 'Motor Control', 'Embedded Systems'],
+  },
   {
     id: 'work-1',
     company: 'Robotics Research Assistant',

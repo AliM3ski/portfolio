@@ -50,11 +50,10 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
         {/* Alternating sections */}
         {item.sections.map((section, i) => {
           const isEven = i % 2 === 0
-          const hasImage = !!section.image
-
+          const hasMedia = !!(section.image || section.video)
           const textContent = Array.isArray(section.text) ? section.text : [section.text]
 
-          if (!hasImage) {
+          if (!hasMedia) {
             return (
               <motion.div
                 key={i}
@@ -94,18 +93,29 @@ export default function WorkViewer({ item, direction, onPrev, onNext }: Props) {
                 </div>
               </div>
 
-              {/* Image */}
+              {/* Media */}
               <div
                 className={`relative overflow-hidden bg-gray-50 min-h-[440px]
                   ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={section.image}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: section.imagePosition ?? 'center' }}
-                />
+                {section.video ? (
+                  <video
+                    src={section.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={section.image}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: section.imagePosition ?? 'center' }}
+                  />
+                )}
               </div>
             </motion.div>
           )
