@@ -60,7 +60,7 @@ export const projects: Project[] = [
       },
       {
         text: "Hardware — We built the collection mechanism from scratch: a front plow to corral objects and a bag-style collector to scoop them up. Getting everything physically reliable under competition conditions, with the clock running and judges watching, was its own challenge.",
-        image: '/projects/GECRobot-side.jpg',
+        image: '/projects/GECRobot-plow.jpg',
       },
       {
         text: "Here's the robot running autonomously during competition testing.",
