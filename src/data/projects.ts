@@ -41,6 +41,17 @@ export type UtilLink = {
 
 export const projects: Project[] = [
   {
+    id: 'gec-robot',
+    title: 'GEC Competition Robot',
+    subtitle: 'Hardware · Arduino · Embedded · 2026',
+    description: [
+      'Built for the Guelph Engineering Competition 2026, Senior Design category. Our team designed and built an autonomous robot car from scratch in a few weeks — Arduino brain, motor controllers, custom chassis, the whole thing.',
+      'The robot had a front plow for pushing and a payload mechanism. Getting the motor control, sensors, and autonomy all working together under time pressure was a real challenge, and competing against other teams\' designs made it a ton of fun.',
+    ],
+    image: '/projects/GECRobot.jpg',
+    tags: ['Arduino', 'C++', 'Motor Control', 'Embedded Systems', 'Hardware'],
+  },
+  {
     id: 'llm-summarizer',
     title: 'LLM Medical Paper Summarizer',
     subtitle: 'AI · FastAPI · Docker · 2025',
