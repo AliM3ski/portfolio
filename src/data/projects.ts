@@ -52,7 +52,7 @@ export const projects: Project[] = [
     sections: [
       {
         text: "Built for the Guelph Engineering Competition, themed \"Full Circle: Rethinking Resources.\" The challenge was to build an autonomous vehicle that picks up recyclables while leaving trash behind in a simulated landfill grid. Competing against a room full of other teams' designs made it a lot of fun.",
-        image: '/projects/GECRobot-competition.jpg',
+        image: '/projects/GECRobot-overview.jpg',
       },
       {
         text: "Software — I wrote the Arduino logic driving the autonomous behaviour: reading sensors to detect and classify objects, making real-time decisions about what to collect and what to avoid, and controlling the motors to navigate the grid consistently across two randomized test runs.",

@@ -15,7 +15,7 @@ export default function ProjectEditorialViewer({ project, onPrev, onNext }: Prop
   const sections = project.sections ?? []
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto min-h-0">
       {/* Header */}
       <div className="px-10 lg:px-16 py-14 lg:py-20 border-b border-gray-100">
         <p className="font-mono text-[11px] text-gray-400 uppercase tracking-widest">
