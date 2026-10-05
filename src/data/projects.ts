@@ -188,7 +188,7 @@ export const aboutData: AboutData = {
   education: {
     school: 'University of Guelph',
     degree: 'B.Eng. Systems and Computing Engineering',
-    period: '2023 – 2029',
+    period: '2024 – 2029',
   },
   interests: ['Robotics', 'Healthcare Engineering', 'AI & Machine Learning', 'Embedded Systems'],
   email: 'alimeski.work@gmail.com',
